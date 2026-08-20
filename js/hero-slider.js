@@ -212,9 +212,37 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Close mobile drawer when clicking link
+    // Mobile Product Accordion Submenu Handler
+    const mobileDropdown = mobileDrawer.querySelector('.mobile-nav-dropdown');
+    const mobileDropdownHeader = mobileDrawer.querySelector('.mobile-dropdown-header');
+    const toggleBtn = mobileDrawer.querySelector('.mobile-dropdown-toggle');
+    const toggleIcon = mobileDrawer.querySelector('.toggle-icon');
+
+    if (mobileDropdownHeader && mobileDropdown) {
+      mobileDropdownHeader.addEventListener('click', (e) => {
+        // Prevent top-level product link navigation so user can toggle accordion
+        e.preventDefault();
+        e.stopPropagation();
+
+        const isOpen = mobileDropdown.classList.contains('open');
+        if (isOpen) {
+          mobileDropdown.classList.remove('open');
+          if (toggleIcon) toggleIcon.textContent = '+';
+          if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
+        } else {
+          mobileDropdown.classList.add('open');
+          if (toggleIcon) toggleIcon.textContent = '−';
+          if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    }
+
+    // Close mobile drawer when clicking any nav link (including submenu links)
     const mobileLinks = mobileDrawer.querySelectorAll('a');
     mobileLinks.forEach(link => {
+      // Skip the main dropdown trigger link since it handles toggle above
+      if (link.classList.contains('mobile-nav-link-main')) return;
+
       link.addEventListener('click', () => {
         mobileDrawer.classList.remove('open');
         mobileToggle.classList.remove('open');
@@ -410,6 +438,41 @@ document.addEventListener('DOMContentLoaded', () => {
   // Start initial autoplay if hero slides exist
   if (totalSlides > 0) {
     startAutoPlay();
+  }
+
+  // ==========================================================================
+  // SCROLL-BASED REVEAL ANIMATION CONTROLLER (INTERSECTION OBSERVER)
+  // ==========================================================================
+  const revealTargets = document.querySelectorAll(
+    '.asym-product-card, .reveal-element, .reveal-left, .reveal-right, .product-collection-editorial, .category-showcase-section, .product-slider-section'
+  );
+
+  if ('IntersectionObserver' in window && revealTargets.length > 0) {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view', 'is-visible');
+            // Unobserve element after reveal to keep visible on reverse scroll
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        root: null,
+        threshold: 0.15,
+        rootMargin: '0px 0px -40px 0px'
+      }
+    );
+
+    revealTargets.forEach((target) => {
+      revealObserver.observe(target);
+    });
+  } else {
+    // Fallback if IntersectionObserver is unsupported
+    revealTargets.forEach((target) => {
+      target.classList.add('in-view', 'is-visible');
+    });
   }
 });
 

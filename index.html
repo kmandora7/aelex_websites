@@ -24,12 +24,7 @@
     <!-- Minimal Transparent Header Navigation -->
     <header class="site-header" id="site-header">
       <a href="#home" class="brand-logo" aria-label="AELEX Home">
-        <div class="brand-mark">
-          <svg class="brand-mark-svg" viewBox="0 0 32 32">
-            <rect x="3" y="3" width="26" height="26" rx="2" stroke-linecap="round"/>
-            <path d="M10 22L16 10L22 22M12 18H20" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
+        <img src="assets/images/aelexLogo.png" alt="AELEX Logo Icon" class="brand-mark-img">
         <div>
           <span class="brand-name">AELEX</span>
           <span class="brand-tagline">Architectural Hardware</span>
@@ -41,14 +36,26 @@
         <ul class="nav-menu">
           <li><a href="#home" class="nav-link active">Home</a></li>
           <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="products.html" class="nav-link">Products</a></li>
-          <li><a href="#quality" class="nav-link">Quality</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li class="nav-item-dropdown">
+            <a href="products.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
+              Products
+              <svg class="dropdown-chevron" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </a>
+            <ul class="dropdown-menu" aria-label="Product Categories">
+              <li><a href="brass-hinges.html" class="dropdown-item">BRASS HINGES</a></li>
+              <li><a href="brass-tower-bolt.html" class="dropdown-item">BRASS TOWER BOLT</a></li>
+              <li><a href="steel-aluminium-fittings.html" class="dropdown-item">STEEL &amp; ALUMINIUM FITTINGS</a></li>
+            </ul>
+          </li>
+          <li><a href="quality.html" class="nav-link">Quality</a></li>
+          <li><a href="contact.html" class="nav-link">Contact Us</a></li>
         </ul>
       </nav>
 
       <!-- Minimal Header Action Button -->
-      <a href="#contact" class="nav-cta-btn">Get In Touch</a>
+      <a href="contact.html" class="nav-cta-btn">Get In Touch</a>
 
       <!-- Mobile Navigation Hamburger Toggle -->
       <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
@@ -63,9 +70,21 @@
       <ul class="mobile-nav-links">
         <li><a href="#home" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="#quality">Quality</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li class="mobile-nav-dropdown">
+          <div class="mobile-dropdown-header">
+            <a href="products.html" class="mobile-nav-link-main">Products</a>
+            <button class="mobile-dropdown-toggle" aria-label="Toggle Product Submenu" aria-expanded="false">
+              <span class="toggle-icon">+</span>
+            </button>
+          </div>
+          <ul class="mobile-submenu" aria-label="Product Submenu">
+            <li><a href="brass-hinges.html" class="mobile-submenu-link">BRASS HINGES</a></li>
+            <li><a href="brass-tower-bolt.html" class="mobile-submenu-link">BRASS TOWER BOLT</a></li>
+            <li><a href="steel-aluminium-fittings.html" class="mobile-submenu-link">STEEL &amp; ALUMINIUM FITTINGS</a></li>
+          </ul>
+        </li>
+        <li><a href="quality.html">Quality</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
       </ul>
       <div class="mobile-drawer-footer">
         <p class="mobile-drawer-contact">AELEX HARDWARE MANUFACTURER</p>
@@ -80,7 +99,7 @@
       <!-- Slide 01: Brass Hinges -->
       <div class="hero-slide active" id="slide-1" aria-hidden="false">
         <div class="slide-bg-container">
-          <img src="assets/images/photo1.jpg" alt="AELEX Premium Brass Architectural Hinge detail close-up" class="slide-bg-image">
+          <img src="assets/images/photo2.jpg" alt="AELEX Premium Brass Architectural Hinge detail close-up" class="slide-bg-image">
           <div class="slide-overlay"></div>
           <div class="slide-vignette"></div>
         </div>
@@ -103,7 +122,7 @@
       <!-- Slide 02: Brass Tower Bolts -->
       <div class="hero-slide" id="slide-2" aria-hidden="true">
         <div class="slide-bg-container">
-          <img src="assets/images/photo2.jpg" alt="AELEX Solid Brass Architectural Tower Bolt security lock mechanism" class="slide-bg-image">
+          <img src="assets/images/slide2.jpg" alt="AELEX Solid Brass Architectural Tower Bolt security lock mechanism" class="slide-bg-image">
           <div class="slide-overlay"></div>
           <div class="slide-vignette"></div>
         </div>
@@ -126,7 +145,7 @@
       <!-- Slide 03: Steel & Aluminium Fittings -->
       <div class="hero-slide" id="slide-3" aria-hidden="true">
         <div class="slide-bg-container">
-          <img src="assets/images/photo4.jpg" alt="AELEX Stainless Steel and Aluminium architectural door handle and fittings" class="slide-bg-image">
+          <img src="assets/images/slide3.jpg" alt="AELEX Stainless Steel and Aluminium architectural door handle and fittings" class="slide-bg-image">
           <div class="slide-overlay"></div>
           <div class="slide-vignette"></div>
         </div>
@@ -390,12 +409,12 @@
             <div class="card-gradient-overlay"></div>
           </div>
           <div class="card-content">
-            <span class="card-num-tag">01 / HINGES</span>
+            <!-- <span class="card-num-tag">01 / HINGES</span> -->
             <h3 class="card-title">SOLID BRASS HINGES</h3>
-            <div class="card-cta-indicator">
+            <!-- <div class="card-cta-indicator">
               <span>View Range</span>
               <span class="card-arrow">&rarr;</span>
-            </div>
+            </div> -->
           </div>
         </article>
 
@@ -406,12 +425,12 @@
             <div class="card-gradient-overlay"></div>
           </div>
           <div class="card-content">
-            <span class="card-num-tag">02 / TOWER BOLTS</span>
+            <!-- <span class="card-num-tag">02 / TOWER BOLTS</span> -->
             <h3 class="card-title">SECURITY TOWER BOLTS</h3>
-            <div class="card-cta-indicator">
+            <!-- <div class="card-cta-indicator">
               <span>View Range</span>
               <span class="card-arrow">&rarr;</span>
-            </div>
+            </div> -->
           </div>
         </article>
 
@@ -422,12 +441,12 @@
             <div class="card-gradient-overlay"></div>
           </div>
           <div class="card-content">
-            <span class="card-num-tag">03 / FITTINGS</span>
+            <!-- <span class="card-num-tag">03 / FITTINGS</span> -->
             <h3 class="card-title">STEEL &amp; ALUMINIUM FITTINGS</h3>
-            <div class="card-cta-indicator">
+            <!-- <div class="card-cta-indicator">
               <span>View Range</span>
               <span class="card-arrow">&rarr;</span>
-            </div>
+            </div> -->
           </div>
         </article>
 
@@ -438,12 +457,12 @@
             <div class="card-gradient-overlay"></div>
           </div>
           <div class="card-content">
-            <span class="card-num-tag">04 / HARDWARE</span>
+            <!-- <span class="card-num-tag">04 / HARDWARE</span> -->
             <h3 class="card-title">ARCHITECTURAL HARDWARE</h3>
-            <div class="card-cta-indicator">
+            <!-- <div class="card-cta-indicator">
               <span>View Range</span>
               <span class="card-arrow">&rarr;</span>
-            </div>
+            </div> -->
           </div>
         </article>
 
@@ -464,12 +483,7 @@
         <!-- Column 1: Brand & Philosophy -->
         <div class="footer-col footer-col-brand reveal-element delay-1">
           <a href="#home" class="footer-logo" aria-label="AELEX Home">
-            <div class="footer-logo-mark">
-              <svg class="footer-logo-svg" viewBox="0 0 32 32">
-                <rect x="3" y="3" width="26" height="26" rx="2" stroke-linecap="round"/>
-                <path d="M10 22L16 10L22 22M12 18H20" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
+            <img src="assets/images/aelexLogo.png" alt="AELEX Logo Icon" class="footer-mark-img">
             <div>
               <span class="footer-brand-name">AELEX</span>
               <span class="footer-brand-tag">Architectural Hardware</span>
@@ -486,23 +500,23 @@
           <ul class="footer-links">
             <li><a href="#home">Home</a></li>
             <li><a href="about.html">About AELEX</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#collection">Collection</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="quality.html">Quality</a></li>
+            <li><a href="#contact">Contact Us</a></li>
           </ul>
         </div>
 
-        <!-- Column 3: Business Contact -->
         <div class="footer-col footer-col-contact reveal-element delay-3">
           <h3 class="footer-col-title">CONTACT</h3>
           <div class="footer-contact-details">
             <div class="contact-item">
               <span class="contact-label">INQUIRIES</span>
-              <a href="mailto:info@aelexhardware.com" class="contact-value">info@aelexhardware.com</a>
+              <a href="mailto:shreenathjimetal489@gmail.com" class="contact-value">shreenathjimetal489@gmail.com</a>
             </div>
             <div class="contact-item">
               <span class="contact-label">SALES &amp; SPECIFICATION</span>
-              <a href="tel:+919825000000" class="contact-value">+91 98250 XXXXX</a>
+              <a href="tel:9913408752" class="contact-value">9913408752</a>
+              <a href="tel:9909308752" class="contact-value">9909308752</a>
             </div>
           </div>
         </div>
@@ -512,8 +526,7 @@
           <h3 class="footer-col-title">HEADQUARTERS</h3>
           <address class="footer-address">
             <p class="address-name">AELEX Hardware Manufacturer</p>
-            <p class="address-line">Industrial Area, Rajkot</p>
-            <p class="address-line">Gujarat, India 360004</p>
+            <p class="address-line">PLOT NO 3893,-Y,GIDC,PHASE-3,DARED,JAMNAGAR-GUJARAT,INDIA</p>
           </address>
         </div>
 
